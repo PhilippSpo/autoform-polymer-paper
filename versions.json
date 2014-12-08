@@ -2,14 +2,22 @@
   "dependencies": [
     [
       "aldeed:autoform",
-      "4.0.7"
+      "4.0.5"
     ],
     [
       "aldeed:simple-schema",
       "1.1.0"
     ],
     [
+      "application-configuration",
+      "1.0.3"
+    ],
+    [
       "base64",
+      "1.0.1"
+    ],
+    [
+      "binary-heap",
       "1.0.1"
     ],
     [
@@ -17,24 +25,52 @@
       "2.0.3"
     ],
     [
+      "blaze-tools",
+      "1.0.1"
+    ],
+    [
+      "boilerplate-generator",
+      "1.0.1"
+    ],
+    [
+      "callback-hook",
+      "1.0.1"
+    ],
+    [
       "check",
       "1.0.2"
     ],
     [
       "ddp",
-      "1.0.10"
+      "1.0.11"
     ],
     [
       "deps",
       "1.0.5"
     ],
     [
+      "ecwyne:polymer",
+      "1.0.3"
+    ],
+    [
+      "ecwyne:polymer-elements",
+      "1.0.4"
+    ],
+    [
       "ejson",
       "1.0.4"
     ],
     [
+      "follower-livedata",
+      "1.0.2"
+    ],
+    [
       "geojson-utils",
       "1.0.1"
+    ],
+    [
+      "html-tools",
+      "1.0.2"
     ],
     [
       "htmljs",
@@ -54,19 +90,27 @@
     ],
     [
       "livedata",
-      "1.0.10"
+      "1.0.11"
     ],
     [
       "logging",
-      "1.0.4"
+      "1.0.5"
     ],
     [
       "meteor",
       "1.1.3"
     ],
     [
+      "minifiers",
+      "1.1.2"
+    ],
+    [
       "minimongo",
-      "1.0.4"
+      "1.0.5"
+    ],
+    [
+      "mongo",
+      "1.0.8"
     ],
     [
       "mrt:moment",
@@ -93,6 +137,18 @@
       "1.0.1"
     ],
     [
+      "routepolicy",
+      "1.0.2"
+    ],
+    [
+      "spacebars",
+      "1.0.3"
+    ],
+    [
+      "spacebars-compiler",
+      "1.0.3"
+    ],
+    [
       "templating",
       "1.0.9"
     ],
@@ -102,10 +158,18 @@
     ],
     [
       "ui",
-      "1.0.3"
+      "1.0.4"
     ],
     [
       "underscore",
+      "1.0.1"
+    ],
+    [
+      "webapp",
+      "1.1.4"
+    ],
+    [
+      "webapp-hashing",
       "1.0.1"
     ]
   ],

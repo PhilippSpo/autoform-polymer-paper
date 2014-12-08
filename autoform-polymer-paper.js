@@ -31,36 +31,6 @@ Template['afFormGroup_paper'].helpers({
 });
 
 _.each([
-    "afSelect_paper",
-    "afBooleanSelect_paper",
-    "afSelectMultiple_paper",
-    "afTextarea_paper",
-    "afInputText_paper",
-    "afInputPassword_paper",
-    "afInputDateTime_paper",
-    "afInputDateTimeLocal_paper",
-    "afInputDate_paper",
-    "afInputMonth_paper",
-    "afInputTime_paper",
-    "afInputWeek_paper",
-    "afInputNumber_paper",
-    "afInputEmail_paper",
-    "afInputUrl_paper",
-    "afInputSearch_paper",
-    "afInputTel_paper",
-    "afInputColor_paper"
-], function (tmplName) {
-    Template[tmplName].helpers({
-        atts: function addFormControlAtts() {
-            var atts = _.clone(this.atts);
-            // Add bootstrap class
-            atts = AutoForm.Utility.addClass(atts, "form-control");
-            return atts;
-        }
-    });
-});
-
-_.each([
     "afInputButton_paper",
     "afInputSubmit_paper",
     "afInputReset_paper",
@@ -68,6 +38,9 @@ _.each([
     Template[tmplName].helpers({
         atts: function addFormControlAtts() {
             var atts = _.clone(this.atts);
+            console.log('button atts');
+            console.log(atts);
+            console.log('/button atts');
             // Add bootstrap class
             atts = AutoForm.Utility.addClass(atts, "btn");
             return atts;

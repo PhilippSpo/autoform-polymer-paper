@@ -191,7 +191,7 @@
 </template>
 
 <template name="afInputText_paper">
-    <paper-input-decorator label="{{#if this.labelText}}{{this.labelText}}{{else}}{{afFieldLabelText name=this.atts.name}}{{/if}}">
+    <paper-input-decorator error="{{#if afFieldIsInvalid name=this.atts.name}}{{afFieldMessage  name=this.atts.name}}{{/if}}" isInvalid="{{#if afFieldIsInvalid name=this.atts.name}}true{{else}}false{{/if}}" floatingLabel="true" label="{{#if this.labelText}}{{this.labelText}}{{else}}{{afFieldLabelText name=this.atts.name}}{{/if}}">
         <input is="core-input" value="{{this.value}}" {{atts}}>
     </paper-input-decorator>
 </template>
