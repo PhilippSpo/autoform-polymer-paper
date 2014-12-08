@@ -1,12 +1,13 @@
 Package.describe({
   name: 'conielo:autoform-polymer-paper',
-  summary: ' Polymer paper input elements for autoform ',
-  version: '0.1.0',
-  git: ' /* Fill me in! */ '
+  summary: 'Polymer paper input elements for autoform',
+  version: '0.1.1',
+  git: 'https://github.com/coniel/autoform-polymer-paper.git'
 });
 
 Package.onUse(function(api) {
   api.versionsFrom('1.0');
+  api.use('underscore');
   api.use('templating@1.0.0');
   api.use('blaze@2.0.0');
   api.use('aldeed:autoform@4.0.0');
