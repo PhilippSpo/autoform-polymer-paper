@@ -11,11 +11,12 @@ Package.onUse(function(api) {
   api.use('templating@1.0.0');
   api.use('blaze@2.0.0');
   api.use('aldeed:autoform@4.0.0');
-  api.use('ecwyne:polymer');
-  api.use('ecwyne:polymer-elements');
+  // api.use('ecwyne:polymer');
+  // api.use('ecwyne:polymer-elements');
   api.addFiles([
     'autoform-polymer-paper.html',
-    'autoform-polymer-paper.js'
+    'autoform-polymer-paper.js',
+    'autoform-polymer-paper.css'
   ], 'client');
 });
 

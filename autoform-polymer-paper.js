@@ -1,7 +1,6 @@
 /*
  * Template helpers for "paper" template
  */
-console.log('paper template helpers');
 Template['quickForm_paper'].helpers({
     submitButtonAtts: function bsQuickFormSubmitButtonAtts() {
         var qfAtts = this.atts;
@@ -34,7 +33,7 @@ _.each([
     "afInputButton_paper",
     "afInputSubmit_paper",
     "afInputReset_paper",
-], function (tmplName) {
+], function(tmplName) {
     Template[tmplName].helpers({
         atts: function addFormControlAtts() {
             var atts = _.clone(this.atts);
@@ -63,7 +62,7 @@ _.each([
     "afRadioGroup_paper",
     "afCheckboxGroupInline_paper",
     "afRadioGroupInline_paper"
-], function (tmplName) {
+], function(tmplName) {
     Template[tmplName].helpers({
         atts: function selectedAttsAdjust() {
             var atts = _.clone(this.atts);
@@ -81,6 +80,21 @@ _.each([
             }
         }
     });
+});
+
+Template.afCheckbox_paper.helpers({
+    attsWithoutName: function selectedAttsAdjust() {
+        var atts = _.clone(this.atts);
+        // remove name
+        delete atts.name;
+        return atts;
+    },
+});
+Template.afCheckbox_paper.events({
+    'change paper-checkbox': function(e, template) {
+        var checkbox = $(template.find('input[name="' + this.atts.name + '"]'));
+        checkbox.prop("checked", !checkbox.prop("checked"));
+    }
 });
 
 var selectHelpers = {

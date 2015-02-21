@@ -16,13 +16,15 @@
 </template>
 
 <template name="afFormGroup_paper">
-    <div class="form-group {{#if afFieldIsInvalid name=this.atts.name}}has-error{{/if}}">
-        {{#unless skipLabel}}
-            <label {{bsFieldLabelAtts}}>{{#if this.labelText}}{{this.labelText}}{{else}}{{afFieldLabelText name=this.atts.name}}{{/if}}</label>
-        {{/unless}}
+    {{#with afFieldLabelText name=this.atts.name}}
+    <div class="subheader um-color-primary" horizontal layout center>{{this}}</div>
+    {{/with}}
+    <core-item class="item">
+        {{#if this.afFieldInputAtts.icon}}
+        <core-icon class="left-icon" icon="{{this.afFieldInputAtts.icon}}"></core-icon>
+        {{/if}}
         {{> afFieldInput this.afFieldInputAtts}}
-        <span class="help-block">{{{afFieldMessage name=this.atts.name}}}</span>
-    </div>
+    </core-item>
 </template>
 
 <template name="afObjectField_paper">
@@ -42,42 +44,50 @@
 </template>
 
 <template name="afArrayField_paper">
-    <div class="panel panel-default">
-        <div class="panel-heading">{{afFieldLabelText name=this.atts.name}}</div>
+    <div class="">
+        <div class="autoform-array-header">{{afFieldLabelText name=this.atts.name}}</div>
         {{#if afFieldIsInvalid name=this.atts.name}}
-            <div class="panel-body has-error">
+            <div class="has-error">
                 <span class="help-block">{{{afFieldMessage name=this.atts.name}}}</span>
             </div>
         {{/if}}
-        <ul class="list-group">
+        <ul class="">
             {{#afEachArrayItem name=this.atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
-                <li class="list-group-item autoform-array-item">
+                <paper-shadow class="autoform-array-item">
                     <div class="media">
+                        <div horizontal end-justified layout>
                         {{#if afArrayFieldHasMoreThanMinimum name=../atts.name minCount=../atts.minCount maxCount=../atts.maxCount}}
-                            <button type="button" class="btn btn-primary autoform-remove-item pull-left"><span class="glyphicon glyphicon-minus"></span></button>
+                            <paper-fab class="autoform-remove-item fab-xs um-background-color-primary" icon="clear">
+                            </paper-fab>
                         {{/if}}
+                        </div>
                         <div class="media-body">
                             {{> afQuickField name=this.name label=false options="auto"}}
                         </div>
                     </div>
-                </li>
+                </paper-shadow>
             {{/afEachArrayItem}}
             {{#if afArrayFieldHasLessThanMaximum name=this.atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
-                <li class="list-group-item">
-                    <button type="button" class="btn btn-primary autoform-add-item" data-autoform-field="{{this.atts.name}}" data-autoform-minCount="{{this.atts.minCount}}" data-autoform-maxCount="{{this.atts.maxCount}}"><span class="glyphicon glyphicon-plus"></span></button>
-                </li>
+                <!-- <paper-shadow class="autoform-array-item"> -->
+                <paper-button class="autoform-add-item um-background-color-primary" data-autoform-field="{{this.atts.name}}" data-autoform-minCount="{{this.atts.minCount}}" data-autoform-maxCount="{{this.atts.maxCount}}">
+                    <core-icon icon="add"></core-icon>
+                    Feld hinzufügen
+                </paper-button>
+                <!-- </paper-shadow> -->
             {{/if}}
         </ul>
     </div>
 </template>
 
 <template name="afCheckbox_paper">
-    <div class="checkbox">
-        <label>
-            <input type="checkbox" value="{{this.value}}" {{atts}} />
+    <!-- <div class="checkbox" horizontal layout center> -->
+        <paper-checkbox class="left-icon" checked="{{this.value}}" {{attsWithoutName}}></paper-checkbox>
+        <input type="checkbox" hidden value="true" {{atts}}/>
+
+        <div class="text" flex>
             {{afFieldLabelText name=this.name}}
-        </label>
-    </div>
+        </div>
+    <!-- </div> -->
 </template>
 
 <template name="afCheckboxGroup_paper">
@@ -191,9 +201,11 @@
 </template>
 
 <template name="afInputText_paper">
-    <paper-input-decorator error="{{#if afFieldIsInvalid name=this.atts.name}}{{afFieldMessage  name=this.atts.name}}{{/if}}" isInvalid="{{#if afFieldIsInvalid name=this.atts.name}}true{{else}}false{{/if}}" floatingLabel="true" label="{{#if this.labelText}}{{this.labelText}}{{else}}{{afFieldLabelText name=this.atts.name}}{{/if}}">
-        <input is="core-input" value="{{this.value}}" {{atts}}>
-    </paper-input-decorator>
+    <div class="text" flex>
+        <paper-input-decorator error="{{#if afFieldIsInvalid name=this.atts.name}}{{afFieldMessage  name=this.atts.name}}{{/if}}" isInvalid="{{#if afFieldIsInvalid name=this.atts.name}}true{{else}}false{{/if}}" floatingLabel="{{this.atts.floating}}" label="{{#if this.labelText}}{{this.labelText}}{{else}}{{afFieldLabelText name=this.atts.name}}{{/if}}">
+            <input is="core-input" value="{{this.value}}" {{atts}}>
+        </paper-input-decorator>
+    </div>
 </template>
 
 <template name="afInputPassword_paper">
@@ -201,7 +213,7 @@
 </template>
 
 <template name="afInputButton_paper">
-    <input type="button" value="{{this.value}}" {{atts}}/>
+    <paper-button value="{{this.value}}" {{atts}}></paper-button>
 </template>
 
 <template name="afInputSubmit_paper">
